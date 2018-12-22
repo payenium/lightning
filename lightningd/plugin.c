@@ -798,8 +798,7 @@ static bool plugin_subscriptions_add(struct plugin *plugin, const char *buffer,
 			    plugin->buffer);
 			return false;
 		}
-		topic = tal_strndup(
-		    plugin, plugin->buffer + s->start, s->end - s->start);
+		topic = json_strdup(plugin, plugin->buffer, s);
 
 		if (!notifications_have_topic(topic)) {
 			plugin_kill(
