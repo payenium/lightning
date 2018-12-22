@@ -1056,7 +1056,7 @@ void json_add_opt_plugins(struct json_stream *response,
 }
 
 /**
- * Determine whethe a plugin is subscribed to a given topic/method.
+ * Determine whether a plugin is subscribed to a given topic/method.
  */
 static bool plugin_subscriptions_contains(struct plugin *plugin,
 					  const char *method)
