@@ -22,7 +22,7 @@ void notify_connect(struct lightningd *ld, struct pubkey *nodeid,
 	json_add_pubkey(n->stream, "id", nodeid);
 	json_add_address_internal(n->stream, "address", addr);
 	jsonrpc_notification_end(n);
-	plugins_notify(ld->plugins, n);
+	plugins_notify(ld->plugins, take(n));
 }
 
 void notify_disconnect(struct lightningd *ld, struct pubkey *nodeid)
@@ -31,5 +31,5 @@ void notify_disconnect(struct lightningd *ld, struct pubkey *nodeid)
 	    jsonrpc_notification_start(NULL, notification_topics[1]);
 	json_add_pubkey(n->stream, "id", nodeid);
 	jsonrpc_notification_end(n);
-	plugins_notify(ld->plugins, n);
+	plugins_notify(ld->plugins, take(n));
 }
