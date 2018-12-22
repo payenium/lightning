@@ -25,12 +25,12 @@ def init(options, configuration, plugin):
 
 
 @plugin.subscribe("connect")
-def on_connect(id, address, plugin):
+def on_connect(peer_id, address, plugin):
     plugin.log("Received connect event for peer {}".format(id))
 
 
 @plugin.subscribe("disconnect")
-def on_disconnect(id, plugin):
+def on_disconnect(peer_id, plugin):
     plugin.log("Received disconnect event for peer {}".format(id))
 
 
