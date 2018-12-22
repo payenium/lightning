@@ -231,7 +231,7 @@ plugin_request_new_(struct plugin *plugin,
 /**
  * Send a JSON-RPC message (request or notification) to the plugin.
  */
-static void plugin_send(struct plugin *plugin, struct json_stream *stream TAKES)
+static void plugin_send(struct plugin *plugin, struct json_stream *stream)
 {
 	tal_steal(plugin->js_arr, stream);
 	*tal_arr_expand(&plugin->js_arr) = stream;
