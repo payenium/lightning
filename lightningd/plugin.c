@@ -233,7 +233,8 @@ plugin_request_new_(struct plugin *plugin,
  */
 static void plugin_send(struct plugin *plugin, struct json_stream *stream TAKES)
 {
-	*tal_arr_expand(&plugin->js_arr) = tal_steal(plugin->js_arr, stream);
+	tal_steal(plugin->js_arr, stream);
+	*tal_arr_expand(&plugin->js_arr) = stream;
 	io_wake(plugin);
 }
 
