@@ -1074,5 +1074,6 @@ void plugins_notify(struct plugins *plugins,
 		if (plugin_subscriptions_contains(p, n->method))
 			plugin_send(p, json_stream_dup(p, n->stream));
 	}
-	tal_free(n);
+	if (taken(n))
+		tal_free(n);
 }
