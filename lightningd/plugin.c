@@ -846,7 +846,9 @@ static void plugin_manifest_cb(const struct plugin_request *req,
 	if (!plugin_opts_add(plugin, buffer, resulttok)
 	    || !plugin_rpcmethods_add(plugin, buffer, resulttok)
 	    || !plugin_subscriptions_add(plugin, buffer, resulttok))
-		plugin_kill(plugin, "Failed to register options or methods");
+		plugin_kill(
+		    plugin,
+		    "Failed to register options, methods, or subscriptions.");
 	/* Reset timer, it'd kill us otherwise. */
 	tal_free(plugin->timeout_timer);
 }
