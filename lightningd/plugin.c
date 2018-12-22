@@ -804,7 +804,7 @@ static bool plugin_subscriptions_add(struct plugin *plugin, const char *buffer,
 		if (!notifications_have_topic(topic)) {
 			plugin_kill(
 			    plugin,
-			    "topic %s is not a known notification topic", topic);
+			    "topic '%s' is not a known notification topic", topic);
 			return false;
 		}
 
